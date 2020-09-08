@@ -36,7 +36,16 @@ window.view = {
 	},
 	// activateEvents: calls addClickEvent method to add EventListener to other methods.
 	activateEvents: function () {
-		this.addClickEvent('okBtnId', function() { view.validationInput() });
+		this.addClickEvent('okBtnId', function() { 
+            var a = document.getElementById("valueA").value;
+            var b = document.getElementById("valueB").value;
+            if( a >0 && a <11 && b >0 && b <11){
+            view.validationInput();
+            }
+            else{
+                alert("Invalid Input");
+                return false;
+            }});
 		this.addClickEvent('startBtnId', function() { view.startExperiment() });
 		this.addClickEvent('nextBtnId', function() { view.plotCurveArea() });
 		this.addClickEvent('stopBtnId', function() { view.stopExperiment() });
